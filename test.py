@@ -3,7 +3,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import os
 from functions import *
-from inference import predict
+from inference import predict_img
 import warnings
 warnings.filterwarnings("ignore")
 
