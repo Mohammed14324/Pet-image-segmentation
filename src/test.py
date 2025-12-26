@@ -17,7 +17,7 @@ for img, mask in test_dataset:
 
 print(f"Total test images: {len(test_images)}")
 
-model = tf.keras.models.load_model(
+history=model = tf.keras.models.load_model(
     "model/pet_segmentation.keras",
     custom_objects={'combined_loss': combined_loss}
 )
