@@ -36,4 +36,4 @@ jobs :
 
       - name : Run docker container
         run : |
-          docker run -it --name pet-segmentation -p "4000:4000" pet-segmentation
+          docker run --name pet-segmentation -p "4000:4000" pet-segmentation
