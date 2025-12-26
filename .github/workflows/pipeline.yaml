@@ -30,6 +30,9 @@ jobs :
       - name : Test model
         run : |
           python src/test.py
+          python src/functions.py
+          python src/inference.py
+
       - name : Build Docker image 
         run : |
           docker build -t pet-segmentation -f docker/Dockerfile .
