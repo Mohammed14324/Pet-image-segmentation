@@ -2,7 +2,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from .functions import combined_loss
+from src.functions import combined_loss
 import warnings
 warnings.filterwarnings("ignore")
 
