@@ -30,7 +30,3 @@ The server returns a PNG image with the segmented pet.
 ## CI Pipeline
 
 This project uses GitHub Actions for Continuous Integration. The workflow automatically installs dependencies and runs tests using pytest on every push or pull request to main. The pipeline file is located at `.github/workflows/pipeline.yaml`.
-=======
-# Pet-image-segmentation
-This is an AI model that segments a cat or a dog from the image.
->>>>>>> bc55cb3e0c3c1fd18beea84c18d47f2aaf32ddfc
