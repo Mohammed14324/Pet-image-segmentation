@@ -1,10 +1,19 @@
-from libraries import *
+import tensorflow as tf
+from fastapi import FastAPI, File, UploadFile
+import numpy as np
+import uvicorn
+from io import BytesIO
+from PIL import Image
+from fastapi.responses import StreamingResponse
+from functions import combined_loss
+from inference import predict_img
+import warnings
 
+warnings.filterwarnings("ignore")   
 model = tf.keras.models.load_model(
     "model/pet_segmentation.keras",
-    custom_objects={"combined_loss": combined_loss}
+    custom_objects={'combined_loss': combined_loss}
 )
-
 app = FastAPI()
 
 
@@ -12,24 +21,9 @@ app = FastAPI()
 async def predict(file: UploadFile = File(...)):
     contents = await file.read()
     img = Image.open(BytesIO(contents)).convert("RGB").resize((128, 128))
-    img_array = np.array(img) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-    
-    prediction = model.predict(img_array)
-    pred_array = np.clip(prediction[0] * 255.0, 0, 255).astype(np.uint8)
-    img_array=img_array[0]*255.0
-    reuslte_img=img_array.tolist()
-    for i in range(128):
-        for j in range(128):
-            resulte=np.argmax(pred_array[i][j])
-            if(resulte!=1):
-                for k in range(3):
-                    reuslte_img[i][j][k]=1-reuslte_img[i][j][k]
-    resulte_img=np.array(reuslte_img).astype(np.uint8)
-    pred_img = Image.fromarray(resulte_img)
-    
+    prediction=predict_img(img,model)        
     buf = BytesIO()
-    pred_img.save(buf, format="PNG")
+    prediction.save(buf, format="PNG")
     buf.seek(0)
     return StreamingResponse(buf, media_type="image/png")
 

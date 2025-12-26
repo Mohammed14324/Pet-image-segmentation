@@ -27,12 +27,13 @@ jobs :
         run : |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name : Build Docker image
+      - name : Test model
+        run : |
+          python test.py
+      - name : Build Docker image 
         run : |
           docker build -t pet-segmentation -f docker/Dockerfile .
 
       - name : Run docker container
         run : |
-          docker run --name pet-segmentation -d -p "4000:4000" pet-segmentation
-
+          docker run -it --name pet-segmentation -p "4000:4000" pet-segmentation
