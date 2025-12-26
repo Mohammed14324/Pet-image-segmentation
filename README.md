@@ -1,13 +1,3 @@
-## Installation
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/Mohammed14324/Pet-image-segmentation.git](https://github.com/Mohammed14324/Pet-image-segmentation)
-cd Pet-image-segmentation
-pip install -r requirements.txt
-```
-
 ## Usage
 
 Run the FastAPI server:
