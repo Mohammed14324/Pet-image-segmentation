@@ -30,7 +30,7 @@ jobs :
 
       - name : Build Docker image
         run : |
-          docker build -t pet-segmentation -f Dockerfile .
+          docker build -t pet-segmentation -f docker/Dockerfile .
 
       - name : Run docker container
         run : |
