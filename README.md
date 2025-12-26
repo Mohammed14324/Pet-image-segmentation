@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Installation
 
 Clone the repository and install dependencies:
