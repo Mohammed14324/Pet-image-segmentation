@@ -1,1 +1,4 @@
-/model/pet-image-segmentation.ipynb
+/src/loading_data.py
+/src/test.py
+/src/train.py
+/data
