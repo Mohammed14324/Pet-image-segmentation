@@ -3,8 +3,8 @@
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/Mohammed14324/pet-segmentation.git
-cd pet-segmentation
+git clone https://github.com/Mohammed14324/Pet-image-segmentation.git
+cd Pet-image-segmentation
 pip install -r requirements.txt
 ```
 
