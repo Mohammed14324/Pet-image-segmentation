@@ -5,8 +5,8 @@ import uvicorn
 from io import BytesIO
 from PIL import Image
 from fastapi.responses import StreamingResponse
-from functions import combined_loss
-from inference import predict_img
+from src.functions import combined_loss
+from src.inference import predict_img
 import warnings
 
 warnings.filterwarnings("ignore")   
